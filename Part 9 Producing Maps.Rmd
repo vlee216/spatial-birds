@@ -665,12 +665,7 @@ r_pred_proj_2 <- projectRaster(r_pred_2, crs = map_proj$proj4string, method = "n
     r_plot_2[r_plot_2 <= zero_threshold] <- NA
     # log transform
     r_plot_2 <- log10(r_plot_2)
-    # breaks and legend
-    mx <- ceiling(100 * cellStats(r_plot_2, max)) / 100
-    mn <- floor(100 * cellStats(r_plot_2, min)) / 100
-    brks <- seq(mn, mx, length.out = length(pal) + 1)
-    lbl_brks <- seq(mn, mx, length.out = 5)
-    lbls <- round(10^lbl_brks, 2)
+    # breaks and legend: same as for gam prediction plot
   
   # abundance, part 2
   plot(r_plot_2, 
